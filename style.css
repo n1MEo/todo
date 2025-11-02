@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+form {
+    min-height: 200px;
+    max-height: 100%;
+    height: auto;
+    width: 800px;
+}
+
 body {
     width: 99.2vw;
     height: 99.2vh;
@@ -23,11 +30,11 @@ body.light-theme {
 }
 
 body.dark-theme {
-    background-color: black;
+    background-color: rgb(55, 55, 55);
     color: white;
      input {
         color: white;
-        background-color: black;
+        background-color: rgb(55, 55, 55);
         transition: 0.3s ease;
     }
 }
@@ -36,7 +43,7 @@ body.dark-theme {
     justify-self: center;
     width: 22px;
     height: 22px;
-    background-image: url(moon.svg);
+    background-image: url(photos/moon.svg);
 }
 
 .theme_image_dark {
@@ -44,7 +51,7 @@ body.dark-theme {
     justify-self: center;
     width: 22px;
     height: 22px;
-    background-image: url(sun.svg);
+    background-image: url(photos/sun.svg);
 }
 
 *:focus {
@@ -63,6 +70,8 @@ main {
     text-align: center;
     font-family: "Kanit", sans-serif;
     font-size: 26px;
+    height: 50px;
+
 }
 
 #finder-light {
@@ -120,3 +129,55 @@ main {
     transform: scale(1.1);
 }
 
+.task {
+    display: flex;
+    flex-direction: column;
+    width: 26px;
+    height: 26px;
+    accent-color: #6C63FF;
+}
+
+.tasklist {
+    width: 525px;
+    height: 70px;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.task_text {
+    cursor: pointer;
+    user-select: none;
+    font-family: "Kanit", sans-serif;
+    font-size: 20px;
+    font-weight: medium;
+}
+
+.task_text {
+    color: inherit; 
+}
+
+.task:checked + .task_text {
+    text-decoration: line-through;
+    color: #878787 !important;
+}
+
+.task_text.completed {
+    text-decoration: line-through;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+hr {
+    width: 520px;
+    background-color: #6C63FF;
+    height: 1px;
+    border: none;
+}

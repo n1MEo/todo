@@ -16,17 +16,40 @@
 <body>
     <main>
         <form>
-        <p id="maintext">TODO LIST</p>
-        <input type="text" id="finder-light" placeholder=" Search note...">
-        <button type="submit" id="btnfind"><img src="Vector.svg"></button>
-        <select id="spisok">
-            <option>ALL</option>
-            <option>privet</option>
-        </select>
-        <button type="button" id="themeToggle"><img id="ThemeIcon" src="moon.svg"></button>
+            <p id="maintext">TODO LIST</p>
+            <input type="text" id="finder-light" placeholder=" Search note...">
+            <button type="submit" id="btnfind"><img src="photos/Vector.svg"></button>
+            <select id="spisok">
+                <option>ALL</option>
+                <option>DONE</option>
+                <option>ONGOING</option>
+            </select>
+            <button type="button" id="themeToggle"><img id="ThemeIcon" src="photos/moon.svg"></button>
+            <div class="tasklist">
+                <div style="display: flex; gap: 20px;">
+                    <input type="checkbox" class="task">
+                    <p class="task_text">Сделать сальто</p>
+                </div>
+                <hr>
+            </div>
+            <div class="tasklist">
+                <div style="display: flex; gap: 20px;">
+                    <input type="checkbox" class="task">
+                    <p class="task_text">Убраться в комнате</p>
+                </div>
+                <hr>
+            </div>
+            <div class="tasklist">
+                <div style="display: flex; gap: 20px;">
+                    <input type="checkbox" class="task">
+                    <p class="task_text">Сверстать макет</p>
+                </div>
+                <hr>
+            </div>
         </form>
     </main>
-    
+
 </body>
 <script src="script.js"></script>
+
 </html>
