@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="note_text">Input note text...</label>
+    <input type="text" id="note_text">
+    <button id="btn_add_note">ADD</button>
+    <ul id="note_list"></ul>
+
+    <script>
+        const input = document.getElementById('note_text');
+        const ul = document.getElementById('note_list');
+        const button = document.getElementById('btn_add_note');
+        
+        button.addEventListener('click', ()=>{
+            const new_note_elem = document.createElement('li');
+            const note_checkbox = document.createElement('input');
+            const note_span = document.createElement('span');
+
+            new_note_elem.classList.add('note');
+            note_checkbox.setAttribute('type','checkbox');
+            note_span.innerText = input.value;
+            new_note_elem.appendChild(note_checkbox);
+            new_note_elem.appendChild(note_span);
+            ul.appendChild(new_note_elem);
+
+        })
+    </script>
+</body>
+
+</html>

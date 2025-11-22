@@ -15,7 +15,7 @@
 
 <body>
     <main>
-        <form>
+        <div id="form">
             <p id="maintext">TODO LIST</p>
             <input type="text" id="finder-light" placeholder=" Search note...">
             <button type="submit" id="btnfind"><img src="photos/Vector.svg"></button>
@@ -25,29 +25,25 @@
                 <option>ONGOING</option>
             </select>
             <button type="button" id="themeToggle"><img id="ThemeIcon" src="photos/moon.svg"></button>
-            <div class="tasklist">
-                <div style="display: flex; gap: 20px;">
-                    <input type="checkbox" class="task">
-                    <p class="task_text">Сделать сальто</p>
-                </div>
-                <hr>
-            </div>
-            <div class="tasklist">
-                <div style="display: flex; gap: 20px;">
-                    <input type="checkbox" class="task">
-                    <p class="task_text">Убраться в комнате</p>
-                </div>
-                <hr>
-            </div>
-            <div class="tasklist">
-                <div style="display: flex; gap: 20px;">
-                    <input type="checkbox" class="task">
-                    <p class="task_text">Сверстать макет</p>
-                </div>
-                <hr>
-            </div>
-        </form>
+            <div class="box_for_tasks">
+                <img src="photos/Detective-check-footprint 1.png" id="empty">
+                <p id="emt_txt">Empty...</p>
+            </div> 
+        </div>
+        <button id="add_task"><img src=photos/plus.png style="width: 50%; height: 50%;"></button>
+        </div>
     </main>
+    <div class="modale_window">
+        <div id="modale_content">
+            <p id="maintext">NEW LIST</p>
+            <input type="text" id="task_name" placeholder="input your note...">
+            <div id="buttons_box">
+                <button id="cancel">CANCEL</button>
+                <button id="apply">APPLY</button>
+            </div>
+        </div>
+    </div>
+    <div class="background_box"></div>
 
 </body>
 <script src="script.js"></script>

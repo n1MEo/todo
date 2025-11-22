@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-form {
+#form {
     min-height: 200px;
     max-height: 100%;
     height: auto;
@@ -21,6 +21,7 @@ body {
 body.light-theme {
     background-color: white;
     color: black;
+
     input {
         color: black;
         background-color: white;
@@ -32,12 +33,14 @@ body.light-theme {
 body.dark-theme {
     background-color: rgb(55, 55, 55);
     color: white;
-     input {
+
+    input {
         color: white;
         background-color: rgb(55, 55, 55);
         transition: 0.3s ease;
     }
 }
+
 .theme_image_light {
     display: flex;
     justify-self: center;
@@ -60,10 +63,12 @@ body.dark-theme {
 
 main {
     display: flex;
-    justify-content: center;
+    align-items: flex-end;
     flex-direction: column;
     width: 780px;
-    height: 710px;
+    height: 100%;
+    position: fixed;
+    gap: 500px;
 }
 
 #maintext {
@@ -142,8 +147,8 @@ main {
     height: 70px;
     justify-self: center;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
 }
 
 
@@ -156,12 +161,12 @@ main {
 }
 
 .task_text {
-    color: inherit; 
+    color: inherit;
 }
 
-.task:checked + .task_text {
+.task:checked+.task_text {
     text-decoration: line-through;
-    color: #878787 !important;
+    color: #878787;
 }
 
 .task_text.completed {
@@ -169,10 +174,10 @@ main {
 }
 
 .checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
 }
 
 hr {
@@ -180,4 +185,148 @@ hr {
     background-color: #6C63FF;
     height: 1px;
     border: none;
+
+}
+
+.modale_window {
+    width: 500px;
+    height: 289px;
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    display: none;
+    z-index: 100;
+    position: absolute;
+    top: 15vw;
+    left: 37%;
+}
+
+.background_box {
+    left: 0px;
+    position: absolute;
+    display: none;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 50%;
+}
+
+#add_task {
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: #6C63FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add_task:hover {
+    transform: scale(1.05);
+    background-color: #433ea3;
+    transition: ease 1s;
+    cursor: pointer;
+}
+
+#modale_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 500px;
+    max-height: 289px;
+}
+
+#task_name {
+    width: 440px;
+    height: 38px;
+}
+
+#task_name {
+    border-radius: 5px;
+    border: 2px solid #6C63FF;
+    color: #000000;
+    padding-left: 10px;
+}
+
+#buttons_box {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 200px;
+    width: 440px;
+    height: 50px;
+}
+
+#cancel {
+    background-color: none;
+    color: #6C63FF;
+    border: 1px solid #6C63FF;
+    width: 110px;
+    height: 38px;
+    border-radius: 8px;
+}
+
+#apply {
+    background-color: #6C63FF;
+    color: white;
+    width: 110px;
+    height: 38px;
+    border-radius: 8px;
+    border: none;
+}
+
+#apply:hover {
+    transform: scale(1.05);
+    background-color: #433ea3;
+    transition: ease 1s;
+    cursor: pointer;
+}
+
+#cancel:hover {
+    transform: scale(1.05);
+    background-color: #b8b8b8;
+    transition: ease 1s;
+    cursor: pointer;
+}
+
+.box_for_tasks {
+    height: auto;
+    width: 525px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 120px;
+}
+
+#empty {
+    width: 221px;
+    height: 174px;
+    display: flex;
+    position: relative;
+    left: 140px;
+}
+
+#emt_txt{
+    font-family: "Kanit", sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.note_actions {
+    display: flex;
+    justify-content: right;
+    width: 500px;
+}
+
+.edit-btn {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.delete-btn {
+    cursor: pointer;
+    border: none;
+    background-color: white;
 }
