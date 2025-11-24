@@ -41,6 +41,16 @@ body.dark-theme {
     }
 }
 
+.modale_window[data-theme="dark"] {
+    background-color: #333;
+    color: white;
+}
+
+.modale_window[data-theme="light"] {
+    background-color: white;
+    color: black;
+}
+
 .theme_image_light {
     display: flex;
     justify-self: center;
@@ -80,6 +90,7 @@ main {
 }
 
 #finder-light {
+    padding-left: 10px;
     width: 595px;
     height: 38px;
     border-radius: 5px;
@@ -87,6 +98,7 @@ main {
 }
 
 #finder-dark {
+    padding-left: 10px;
     width: 595px;
     height: 38px;
     border-radius: 5px;
@@ -200,6 +212,24 @@ hr {
     left: 37%;
 }
 
+.modale_window-dark {
+    width: 500px;
+    height: 289px;
+    background-color: rgb(55, 55, 55);
+    color: white;
+    border-radius: 16px;
+    display: none;
+    z-index: 100;
+    position: absolute;
+    top: 15vw;
+    left: 37%;
+    input {
+        color: white !important;
+        background-color: black;
+        transition: ease 0.3s;
+    }
+}
+
 .background_box {
     left: 0px;
     position: absolute;
@@ -240,9 +270,6 @@ hr {
 #task_name {
     width: 440px;
     height: 38px;
-}
-
-#task_name {
     border-radius: 5px;
     border: 2px solid #6C63FF;
     color: #000000;
@@ -322,11 +349,11 @@ hr {
 .edit-btn {
     cursor: pointer;
     border: none;
-    background-color: white;
+    background: none;
 }
 
 .delete-btn {
     cursor: pointer;
     border: none;
-    background-color: white;
+    background: none;
 }

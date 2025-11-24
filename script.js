@@ -1,14 +1,26 @@
+// изменение темы
+
 document.getElementById('themeToggle').addEventListener('click', function () {
     const currentTheme = document.body.className;
+    const modaleTheme = document.getElementsByClassName('modale_window');
     const ThemeIcon = document.getElementById('ThemeIcon');
+    
     if (currentTheme === 'light-theme') {
         document.body.className = 'dark-theme';
+        for (let i = 0; i < modaleTheme.length; i++) {
+            modaleTheme[i].classList.add('modale_window-dark');
+        }
         ThemeIcon.src = "photos/sun.svg";
     } else {
         document.body.className = 'light-theme';
+        for (let i = 0; i < modaleTheme.length; i++) {
+            modaleTheme[i].classList.remove('modale_window-dark');
+        }
         ThemeIcon.src = "photos/moon.svg";
     }
 });
+
+// модальное окно (создание)
 
 const modaleWindow = document.querySelector('.modale_window');
 const background = document.querySelector('.background_box');
@@ -21,6 +33,8 @@ button.addEventListener('click', (e) => {
     modaleWindow.style.display = "flex";
     background.style.display = "flex";
 });
+
+// кнопки действия в модальном окне
 
 const apply = document.querySelector('#apply');
 const cancel = document.querySelector('#cancel');
@@ -36,7 +50,7 @@ function setupTaskEvents(taskList, checkbox, editBtn, deleteBtn, taskText, hr) {
     
     editBtn.addEventListener('click', () => {
         const newText = prompt('Редактировать задачу:', taskText.textContent);
-        if (newText !== null && newText.trim() !== '') {
+        if (newText !== null && newText.trim() !== '') { // проверка на пустую строчку
             taskText.textContent = newText.trim();
         }
     });
@@ -77,6 +91,8 @@ function checkEmptyState() {
         emptyText.style.display = "block";
     }
 }
+
+// создание задачи
 
 apply.addEventListener('click', (e)=>{
     e.preventDefault(); 
@@ -158,6 +174,8 @@ background.addEventListener('click', (e)=>{
     background.style.display = "none";
 });
 
+// сортировка
+
 const selectElement = document.querySelector("#spisok");
 
 function filterTasks(filterType) {
@@ -204,7 +222,56 @@ function filterTasks(filterType) {
     }
 }
 
+// поиск
+
 selectElement.addEventListener('change', (e) => {
     const selectedValue = e.target.value;
     filterTasks(selectedValue);
+});
+
+const searchInput = document.getElementById('finder-light');
+const searchButton = document.getElementById('btnfind');
+
+function performSearch(searchTerm) {
+    const taskLists = document.querySelectorAll(".box_for_tasks > .tasklist");
+    const hrs = document.querySelectorAll(".box_for_tasks > hr");
+    const emptyImg = document.querySelector("#empty");
+    const emptyText = document.querySelector("#emt_txt");
+    
+    let foundTasks = 0;
+    
+    if (searchTerm.trim() === '') {
+        const selectElement = document.querySelector("#spisok");
+        filterTasks(selectElement.value);
+        return;
+    }
+    
+    const searchLower = searchTerm.toLowerCase();
+    
+    taskLists.forEach((taskList, index) => {
+        const taskText = taskList.querySelector('.task_text');
+        const hr = hrs[index];
+        
+        if (taskText && taskText.textContent.toLowerCase().includes(searchLower)) {
+            taskList.style.display = "flex";
+            if (hr) hr.style.display = "block";
+            foundTasks++;
+        } else {
+            taskList.style.display = "none";
+            if (hr) hr.style.display = "none";
+        }
+    });
+    
+    if (foundTasks === 0) {
+        emptyImg.style.display = "block";
+        emptyText.style.display = "block";
+    } else {
+        emptyImg.style.display = "none";
+        emptyText.style.display = "none";
+    }
+}
+
+searchButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    performSearch(searchInput.value);
 });
