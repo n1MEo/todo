@@ -20,25 +20,24 @@ body {
 
 body.light-theme {
     background-color: white;
-    color: black;
-
-    input {
-        color: black;
-        background-color: white;
-        transition: 0.3s ease;
-    }
-
+    color: #333333;
 }
 
 body.dark-theme {
     background-color: rgb(55, 55, 55);
-    color: white;
+    color: #ffffff;
+}
 
-    input {
-        color: white;
-        background-color: rgb(55, 55, 55);
-        transition: 0.3s ease;
-    }
+body.light-theme input {
+    color: #333333;
+    background-color: white;
+    transition: 0.3s ease;
+}
+
+body.dark-theme input {
+    color: #ffffff;
+    background-color: rgb(55, 55, 55);
+    transition: 0.3s ease;
 }
 
 .modale_window[data-theme="dark"] {
@@ -86,7 +85,6 @@ main {
     font-family: "Kanit", sans-serif;
     font-size: 26px;
     height: 50px;
-
 }
 
 #finder-light {
@@ -146,12 +144,15 @@ main {
     transform: scale(1.1);
 }
 
+/* УДАЛИТЬ ДУБЛИРУЮЩИЕСЯ СТИЛИ ДЛЯ .task И .task_text */
+/* ОСТАВИТЬ ТОЛЬКО ЭТИ: */
+
 .task {
-    display: flex;
-    flex-direction: column;
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
     accent-color: #6C63FF;
+    flex-shrink: 0;
 }
 
 .tasklist {
@@ -163,26 +164,38 @@ main {
     gap: 20px;
 }
 
-
 .task_text {
     cursor: pointer;
     user-select: none;
     font-family: "Kanit", sans-serif;
     font-size: 20px;
     font-weight: medium;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    word-break: break-word;
+    display: block;
 }
 
-.task_text {
-    color: inherit;
+.dark-theme .task_text {
+    color: #ffffff;
 }
 
-.task:checked+.task_text {
+.task:checked + .task_text {
     text-decoration: line-through;
     color: #878787;
 }
 
 .task_text.completed {
     text-decoration: line-through;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
 }
 
 .checkbox-label {
@@ -197,7 +210,6 @@ hr {
     background-color: #6C63FF;
     height: 1px;
     border: none;
-
 }
 
 .modale_window {
@@ -223,11 +235,12 @@ hr {
     position: absolute;
     top: 15vw;
     left: 37%;
-    input {
-        color: white !important;
-        background-color: black;
-        transition: ease 0.3s;
-    }
+}
+
+.modale_window-dark input {
+    color: white;
+    background-color: black;
+    transition: ease 0.3s;
 }
 
 .background_box {
@@ -334,7 +347,7 @@ hr {
     left: 140px;
 }
 
-#emt_txt{
+#emt_txt {
     font-family: "Kanit", sans-serif;
     font-size: 20px;
     text-align: center;

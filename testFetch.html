@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="taskText">
+    <button id="btn">Добавить задачу</button>
+
+    <div class="container"></div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+            let taskText = document.getElementById('taskText').value;
+            
+            if (!taskText.trim()) {
+                alert('Введите текст задачи!');
+                return;
+            }
+            
+            let fd = new FormData();
+            fd.append('task_text', taskText);
+            
+            fetch("server/createTask.php", {
+                method: 'post',
+                body: fd
+            })
+        });
+
+    </script>
+</body>
+
+</html>
