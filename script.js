@@ -118,6 +118,9 @@ apply.addEventListener('click', (e) => {
     if (!input.value.trim()) {
         alert('Введите текст задачи!');
         return;
+    } else if (input.value.length > 20) {
+        alert('Задача не должна превышать 20 символов!');
+        return;
     }
 
     const taskText = input.value.trim();
@@ -130,8 +133,6 @@ apply.addEventListener('click', (e) => {
     })
         .then(response => response.json())
         .then((response) => {
-            console.log('Задача сохранена на сервере:', response);
-
             const taskList = document.createElement('div');
             taskList.className = 'tasklist';
 
